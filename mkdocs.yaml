@@ -1,0 +1,40 @@
+site_name: Tikkun Olam Data Club
+site_url: https://tikkun-olam.pages.dev
+site_author: Zach Squeer
+site_description: Tikkun Olam data club materials
+
+repo_url: https://github.com/zachsqueer/tikkun-olam-data-club
+repo_name: zachsqueer/tikkun-olam-data-club
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.highlight
+    - search.suggest
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage: 
+    - Getting Started: getting_started.md
+  - Sessions:
+      - Session 1: sessions/01.md
+  - Exercises: exercises.md
+
+plugins:
+  - search
+  - markdownextradata
+  - mkdocstrings
+
+markdown_extensions:
+  - toc:
+      permalink: "#"
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.emoji

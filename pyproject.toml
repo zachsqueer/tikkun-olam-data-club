@@ -1,5 +1,9 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "de-practice"
+name = "tikkun-olam-data-club"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -8,5 +12,22 @@ dependencies = [
     "google-api-python-client>=2.167.0",
     "google-auth-httplib2>=0.2.0",
     "google-auth-oauthlib>=1.2.1",
+    "google-cloud>=0.34.0",
+    "google-cloud-bigquery>=3.31.0",
+    "hatch>=1.14.1",
+    "mkdocs>=1.6.1",
+    "mkdocs-markdownextradata-plugin>=0.2.6",
+    "mkdocs-material>=9.6.12",
+    "mkdocstrings>=0.29.1",
+    "pandas>=2.2.3",
     "requests>=2.32.3",
 ]
+
+[project.scripts]
+tolam = "cli.run:main"
+
+[tool.hatch.build.targets.sdist]
+include = ["/src/", "/README.md"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["./src/cli"]

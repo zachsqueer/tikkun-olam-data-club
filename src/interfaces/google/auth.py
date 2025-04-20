@@ -8,10 +8,11 @@ SCOPES = [
     "https://www.googleapis.com/auth/bigquery",
     "https://www.googleapis.com/auth/drive",
     "https://www.googleapis.com/auth/spreadsheets",
+    "https://mail.google.com/",
 ]
 
 
-def auth():
+def google_auth():
     """Shows basic usage of the Sheets API.
     Prints values from a sample spreadsheet.
     """
