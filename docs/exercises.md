@@ -12,6 +12,8 @@ Note the following:
     from the API
     - The result of this api call will be the raw file data, not a json object. The "content" attribute of the Response object you get from your request can be used to access this data, and you can write it to disk
     using a similar construct to that used to write the google token to file.
+    - Python's default text encoding is "whatever the current user's OS defaults are", which means that
+    using the default encoding reduces compatibility and causes errors. When opening a file, it's important to set the "encoding" parameter, which is almost always "utf-8". Additionally, data sent over a network is often encoded as a stream of bytes, such as the data received for the csv files output by the Kaggle API. bytes objects like these have a .decode() method which can be passed an encoding (such as "utf-8") to decode it into a python string. 
 
 2. Once you have the file downloaded, read [this short pandas tutorial](https://pandas.pydata.org/docs/user_guide/10min.html) and read the csv into a dataframe. Eliminate all rows from the dataframe except
 those for movies released before 2016, and then print their titles.
