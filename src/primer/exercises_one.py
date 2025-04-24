@@ -64,8 +64,9 @@ bad_scrabble = {char.upper(): i + 1 for i, char in vals}
 The values of bad_scrabble have been shuffled (they are shuffled in the same
 way every time), write a function that loops through a dictionary, alpha, and returns
 a list which orders each character in the alphabet according to its new value.
-You will have to nest loops to do this, and may need to look up some list methods.
-(or at least I'll be impressed if you can do it without nesting them)
+You may have to nest loops to do this, and may need to look up some list methods,
+particularly the .index() method.
+(I'll be impressed if you can do it without nesting them, I'll show you how on Saturday)
 """
 
 
