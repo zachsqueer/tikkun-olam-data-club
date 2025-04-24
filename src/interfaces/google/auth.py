@@ -32,7 +32,7 @@ def google_auth():
             flow = InstalledAppFlow.from_client_secrets_file(client_secrets, SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with token.open("w") as token:
-            token.write(creds.to_json())
+        with token.open("w") as f:
+            f.write(creds.to_json())
 
     return creds
