@@ -53,7 +53,7 @@ are upper case.
 
 
 dict_checker(bad_scrabble)
-print(get_high_score(WORD_LIST))
+print(get_high_score(WORD_LIST))  # Should now print "zillion"
 
 # Ignore this
 vals = list(range(1, 27))
