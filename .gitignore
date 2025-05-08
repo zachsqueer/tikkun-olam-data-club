@@ -10,3 +10,6 @@ answers/
 
 # Virtual environments
 .venv
+
+# Local files
+data_files/
