@@ -53,11 +53,11 @@ print(df)
 input()
 
 dict_lists = {col: list_lists[i] for i, col in enumerate(columns)}
-# {
+# [
 #   "a": [1, 2, 3],
 #   "b": [4, 5, 6],
 #   "c": [7, 8, 9]
-# }
+# ]
 df = pd.DataFrame(dict_lists)
 print(df)
 input()
@@ -97,7 +97,7 @@ Once you have the data in a dataframe you have a great deal of control over it.
 
 path = find_project_root() / "example_files" / "test_data.csv"
 df = pd.read_csv(path)
-print(df.head(10))  # Get just the first x rows
+print(df.head(10).to_markdown())  # Get just the first x rows
 print(df.dtypes)  # Print datatypes for all columns
 
 input()
@@ -118,10 +118,10 @@ df["crm_id"] = df["crm_id"].astype(str) #  Cast a datatype to another datatype
 
 # You can apply functions to series, and a dataframe's columns are stored as series
 def from_bq_timestamp(s: pd.Series) -> pd.Series:
-    if s.str.endswith(" UTC").all():
-        s = s.str.rstrip(" UTC")
+    # if s.str.endswith(" UTC").all():  # Pandas' strip functions doesn't just strip the
+    #     s = s.str.rstrip(" UTC")
     try:
-        s = pd.to_datetime(s, format="%Y-%m-%d %H:%M:%S.%f", utc=True)  # Convert string to time object
+        s = pd.to_datetime(s, format="%Y-%m-%d %H:%M:%S.%f UTC", utc=True)  # Convert string to time object
     except (ParserError, ValueError):
         pass  # If it fails to convert, do nothing.
     return s
@@ -142,3 +142,11 @@ input()
 df[["project_code", "state"]] = df["instance_name"].str.extract(r"^(\d+)(\D+)$", expand=True)  # Regex operations are built in
 print(new.head(10))
 print(df.head(10))
+
+# df = df.drop(columns=["instance_name"])
+# df_mask = ~(df["survey_question"].isna())
+# df = df[df_mask]
+# print(df.reset_index())
+
+df = df.groupby(["list", "survey_question"])["survey_response"].count()
+print(df)
