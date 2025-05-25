@@ -31,3 +31,14 @@ include = ["/src/", "/README.md"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["./src/cli"]
+
+[tool.pyright]
+include = ["src"]
+exclude = ["**/node_modules", "**/__pycache__", ".venv"]
+ignore = ["main"]
+defineConstant = { DEBUG = true }
+stubPath = "src/stubs"
+venvPath = "."
+venv = ".venv"
+extraPaths = ["./src"]
+typeCheckingMode = "standard"
