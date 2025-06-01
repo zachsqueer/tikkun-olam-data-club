@@ -148,5 +148,5 @@ print(df.head(10))
 # df = df[df_mask]
 # print(df.reset_index())
 
-df = df.groupby(["list", "survey_question"])["survey_response"].count()
+df = df.groupby(["list", "survey_question", "survey_response"])["survey_response"].count()
 print(df)
