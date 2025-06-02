@@ -104,11 +104,6 @@ would have the value of None.
 
 
 
-# Write a funtion to reverse the order of a list using a
-# list comprehension
-
-
-
 # Write a function that determines if all elements of a list
 # are integers. Should return Trus if all elements are integers
 # and False otherwise
